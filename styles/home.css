@@ -1,5 +1,4 @@
 body{
-    margin: 0;
     background-image: url("/assets/images/home_background.png");
 }
 
@@ -11,23 +10,6 @@ body{
     justify-content: center;
     color: rgb(175, 174, 174);
 }
-
-.nav-list{
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    padding: 0;
-    justify-content: center;
-    margin: 0 auto;
-    background-color: rgb(75, 75, 94);
-}
-
-.nav-item{
-    padding: 10px 20px;
-    font-size: 20px;
-    color: rgb(221, 220, 209)
-}
-
 
 .my-name{
     font-size: 100px;
