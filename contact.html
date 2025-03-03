@@ -4,6 +4,7 @@
         <title>contact</title>
         <link rel="stylesheet" href="styles/contact.css">
         <link rel="stylesheet" href="styles/navbar.css">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     </head>
 
     <body>
@@ -17,48 +18,39 @@
         </nav>
 
         <div class="container">
-            <div class="left-container">
-                <div class="left">
-                    <div class="contact-info-block">
-                        <p class="small-text">Wanna get in touch?</p>
-                        <p class="large-text">Contact me</p>
-                        <div class="contact-container">
-                            <img src="assets/images/phone-icon.png" class="contact-icon">
-                            <p>+1 672-272-1363</p>
-                        </div>
-                        <div class="contact-container">
-                            <img src="assets/images/email-icon.png" class="contact-icon">
-                            <p>suensenho@gmail.com</p>
-                        </div>
-                        <div class="contact-container">
-                            <img src="assets/images/githu-icon.png" class="contact-icon">
-                            <p>https://github.com/ytrqua3</p>
-                        </div>
-                        <div class="contact-container">
-                            <img src="assets/images/linkedin-icon.png" class="contact-icon">
-                            <p>linkedin.com/in/sen-ho-suen-1357aa353</p>
-                        </div>
-                    </div>
-                    <!--
-                    <p class="or-separator">----------- or -----------</p>
-                    <div class="message-dropbox">
-                        <p class="large-text">Leave a message</p>
-                        <div class="message-dropbox-input-container">
-                            <input class="name-input">
-                            <input class="email-input">
-                            <textarea placeholder="Message"></textarea>
-                            <button>Send</button>
-                        </div>
-                    </div>
-                    -->
-
-
+            <div class="left">
+                <div class="left-title">
+                    <h2>Contact Me</h2>
+                    <hr>
+                </div>
+                <div class="contact-info-line">
+                    <i class="fa-solid fa-phone" style="color: orange"></i>
+                    <a href="tel:+1 672-272-1363" class="contact-info">+1 672-272-1363</a>
+                </div>
+                <div class="contact-info-line">
+                    <i class="fa-brands fa-github" style="color: orange"></i>
+                    <a href="https://www.github.com/ytrqua3" class="contact-info">github.com/ytrqua3</a>
+                </div>
+                <div class="contact-info-line">
+                    <i class="fa-solid fa-envelope" style="color: orange"></i>
+                    <a href="mailto:suensenho@gmail.com" class="contact-info">suensenho@gmail.com</a>
+                </div>
+                <div class="contact-info-line">
+                    <i class="fa-brands fa-linkedin" style="color: orange"></i>
+                    <a href="https://www.linkedin.com/in/sen-ho-suen-1357aa353" class="contact-info">linkedin.com/in/sen-ho-suen-1357aa353</a>
                 </div>
             </div>
-            
-            <div class="right">
-                <img src="assets/images/stickman-dance.gif">
-            </div>
+            <form action="https://api.web3forms.com/submit" method="POST" class="right">
+                <div class="right-title">
+                    <h2>Leave a message</h2>
+                    <hr>
+                </div>
+                <input type="text" name="name" class="contact-inputs" placeholder="Name" required>
+                <input type="email" name="email" class="contact-inputs" placeholder="Email" required>
+                <textarea class="contact-inputs contact-inputs-message" placeholder="Message" name="message" required></textarea>
+                <button class="submit-button" type="submit">Send</button>
+            </form>
         </div>
+        <script src="https://kit.fontawesome.com/45dddf494d.js" crossorigin="anonymous"></script>
     </body>
 </html>
