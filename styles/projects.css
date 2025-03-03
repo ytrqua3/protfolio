@@ -98,6 +98,12 @@ body{
     margin-left: 15px;
 }
 
+.side-project-container{
+    grid-column: 2/5;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
 .side-proj-scroll{
     height: 30px;
     width: 30px;

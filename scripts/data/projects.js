@@ -1,7 +1,41 @@
-export const side_projects = [
+class Project{
+    id;
+    title;
+    img;
+    description;
+    finished;
+    date;
+    keywords;
+
+    constructor(itemInfo){
+        const { id, title, img, description, finished, date, keywords } = itemInfo;
+        this.id = id;
+        this.title = title;
+        this.img = img;
+        this.description = description;
+        this.finished = finished;
+        this.date = date;
+        this.keywords = keywords;
+    }
+
+    generateProjectCellHTML(){
+        return `
+            <a class="side-project-item" href="https://www.google.com">
+                <img class="thumbnail" src="${img}">
+                <p class="project-title">${title}</p>
+            </a>
+        `
+    }
+
+    getProjectId(){
+        return this.id;
+    }
+}
+
+export const sideProjects = [
     {
-        "id": '111',
-        "name": 'Trombone product page',
+        "id": 100,
+        "title": 'Trombone product page',
         "img": 'assets/images/thumbnail-111.png',
         "description": 'frontend webpage built using basic html, css in reference to a freecodecamp project',
         "finished": true,
@@ -9,8 +43,8 @@ export const side_projects = [
         "keywords": ['html', 'css', 'product', 'e-commerece'],
     },
     {
-        "id": '112',
-        "name": 'calory calculator',
+        "id": 101,
+        "title": 'calory calculator',
         "img": 'assets/images/thumbnail-112.png',
         "description": 'frontend webpage built in reference to a freecodecamp project. Built to learn basic interactive JS.',
         "finished": true,
@@ -18,8 +52,8 @@ export const side_projects = [
         "keywords": ['html', 'css', 'interactive', 'calculator', 'js', 'javascript'],
     },
     {
-        "id": '113',
-        "name": 'contacts page template',
+        "id": 102,
+        "title": 'contacts page template',
         "img": 'assets/images/thumbnail-113.png',
         "description": 'interactive contact form using Web3Forms api to send message via email. Built for preparation for portfolio',
         "finished": true,
@@ -27,8 +61,8 @@ export const side_projects = [
         "keywords": ['html', 'css', 'interactive', 'form', 'js', 'javascript', 'contact', 'leave', 'a', 'message', 'api', 'email'],
     },
     {
-        "id": '114',
-        "name": 'nutrition tag',
+        "id": 103,
+        "title": 'nutrition tag',
         "img": 'assets/images/thumbnail-114.png',
         "description": 'nutrition tag built in reference to freecodecamp, used to learn flex styling',
         "finished": true,
@@ -37,3 +71,5 @@ export const side_projects = [
     },
 
 ]
+
+sideProjects.map((projectInfo) => new Project(projectInfo));
