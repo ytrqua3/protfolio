@@ -1,4 +1,4 @@
-const side_projects = [
+export const side_projects = [
     {
         "id": '111',
         "name": 'Trombone product page',
