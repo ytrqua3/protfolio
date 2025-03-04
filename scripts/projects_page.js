@@ -1,5 +1,7 @@
 import  { sideProjects } from "./data/projects.js";
+import { mod } from "./mathTools.js";
 let startIndex = 0;
+let sideLen = sideProjects.length;
 
 function renderSideProjects(){
     document.querySelector(".side-project-container").innerHTML = `
@@ -8,14 +10,26 @@ function renderSideProjects(){
             <p class="project-title">${sideProjects[startIndex].title}</p>
         </a>
         <a class="side-project-item" href="https://www.google.com">
-            <img class="thumbnail" src="${sideProjects[startIndex+1].img}">
-            <p class="project-title">${sideProjects[startIndex+1].title}</p>
+            <img class="thumbnail" src="${sideProjects[(startIndex+1)%sideLen].img}">
+            <p class="project-title">${sideProjects[(startIndex+1)%sideLen].title}</p>
         </a>
         <a class="side-project-item" href="https://www.google.com">
-            <img class="thumbnail" src="${sideProjects[startIndex+2].img}">
-            <p class="project-title">${sideProjects[startIndex+2].title}</p>
+            <img class="thumbnail" src="${sideProjects[(startIndex+2)%sideLen].img}">
+            <p class="project-title">${sideProjects[(startIndex+2)%sideLen].title}</p>
         </a>
     `;
 }
+
+const leftScrollEl = document.querySelector('.js-scroll-left');
+const rightScrollEl = document.querySelector('.js-right-scroll');
+leftScrollEl.addEventListener('click', () => {
+    startIndex = mod(startIndex-1, sideLen);
+    console.log(startIndex);
+    renderSideProjects();
+});
+rightScrollEl.addEventListener('click', () => {
+    startIndex = (startIndex+1)%sideLen;
+    renderSideProjects();
+});
 
 renderSideProjects();
