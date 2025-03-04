@@ -32,4 +32,6 @@ rightScrollEl.addEventListener('click', () => {
     renderSideProjects();
 });
 
+document.querySelector('.side-project-filter').addEventListener('change', )
+
 renderSideProjects();

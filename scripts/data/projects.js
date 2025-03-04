@@ -26,13 +26,11 @@ class Project{
             </a>
         `
     }
-
-    getProjectId(){
-        return this.id;
-    }
 }
 
-export const sideProjects = [
+export const sideProjects = [];
+
+const sideProjectsData = [
     {
         "id": 100,
         "title": 'Trombone product page',
@@ -70,6 +68,33 @@ export const sideProjects = [
         "keywords": ['html', 'css', 'flex', 'styling'],
     },
 
-]
+];
 
-sideProjects.map((projectInfo) => new Project(projectInfo));
+
+function updateOrder(){
+    const option = document.querySelector('.side-project-filter').value;
+    if(option === "1"){
+        sideProjectsData.sort((a, b) => b.date - a.date);
+    }else if (option === "2"){
+        let i=0;
+        while(i<sideLen){
+            if(sideProjectsData.finished){
+                i++;
+            }else{
+                sideProjectsData.splice(i, 1);
+            }
+        }
+    }else if (option === "3"){
+        let i=0;
+        while(i<sideLen){
+            if(sideProjectsData.finished){
+                sideProjectsData.splice(i, 1);
+            }else{
+                i++;
+            }
+        }
+    }else{
+        sideProjectsData.sort((a, b) => a.title.localCompare(b.title));
+    }
+}
+sideProjects.map((projectInfo) => new Project(projectInfo));//need to change as map will change sideProjects
