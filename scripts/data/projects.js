@@ -28,8 +28,6 @@ class Project{
     }
 }
 
-export const sideProjects = [];
-
 const sideProjectsData = [
     {
         "id": 100,
@@ -70,9 +68,10 @@ const sideProjectsData = [
 
 ];
 
-
-function updateOrder(){
+//returns an ordered array of Project class objects
+export function updateOrder(){
     const option = document.querySelector('.side-project-filter').value;
+    const sideLen = sideProjectsData.length;
     if(option === "1"){
         sideProjectsData.sort((a, b) => b.date - a.date);
     }else if (option === "2"){
@@ -96,5 +95,5 @@ function updateOrder(){
     }else{
         sideProjectsData.sort((a, b) => a.title.localCompare(b.title));
     }
+    return sideProjectsData.map((projectData) => new Project(projectData));
 }
-sideProjects.map((projectInfo) => new Project(projectInfo));//need to change as map will change sideProjects

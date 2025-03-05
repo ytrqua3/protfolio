@@ -1,9 +1,12 @@
-import  { sideProjects } from "./data/projects.js";
+import  { updateOrder } from "./data/projects.js";
 import { mod } from "./mathTools.js";
 let startIndex = 0;
-let sideLen = sideProjects.length;
+let sideLen;
+let sideProjects = [];
 
 function renderSideProjects(){
+    sideProjects = updateOrder();
+    sideLen = sideProjects.length;
     document.querySelector(".side-project-container").innerHTML = `
         <a class="side-project-item" href="https://www.google.com">
             <img class="thumbnail" src="${sideProjects[startIndex].img}">
@@ -24,14 +27,15 @@ const leftScrollEl = document.querySelector('.js-scroll-left');
 const rightScrollEl = document.querySelector('.js-right-scroll');
 leftScrollEl.addEventListener('click', () => {
     startIndex = mod(startIndex-1, sideLen);
-    console.log(startIndex);
     renderSideProjects();
 });
 rightScrollEl.addEventListener('click', () => {
-    startIndex = (startIndex+1)%sideLen;
+    startIndex = mod(startIndex+1, sideLen);
     renderSideProjects();
 });
 
-document.querySelector('.side-project-filter').addEventListener('change', )
+document.querySelector('.side-project-filter').addEventListener('change', () => {
+    renderSideProjects();
+})
 
 renderSideProjects();
