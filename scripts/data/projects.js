@@ -69,31 +69,39 @@ const sideProjectsData = [
 ];
 
 //returns an ordered array of Project class objects
-export function updateOrder(){
+export function generateSortedProjects(){
     const option = document.querySelector('.side-project-filter').value;
-    const sideLen = sideProjectsData.length;
+    let sideLen = sideProjectsData.length;
+    let sortedData = sideProjectsData.slice();
     if(option === "1"){
-        sideProjectsData.sort((a, b) => b.date - a.date);
+        sortedData.sort((a, b) => new Date(b.date) - new Date(a.date));
     }else if (option === "2"){
         let i=0;
         while(i<sideLen){
-            if(sideProjectsData.finished){
+            if(sortedData.finished){
                 i++;
             }else{
-                sideProjectsData.splice(i, 1);
+                sortedData.splice(i, 1);
+                sideLen--;
             }
         }
     }else if (option === "3"){
         let i=0;
         while(i<sideLen){
-            if(sideProjectsData.finished){
-                sideProjectsData.splice(i, 1);
+            if(sortedData.finished){
+                sortedData.splice(i, 1);
+                sideLen--;
             }else{
                 i++;
             }
         }
     }else{
-        sideProjectsData.sort((a, b) => a.title.localCompare(b.title));
+        sortedData.sort((a, b) => a.title.localeCompare(b.title));
     }
-    return sideProjectsData.map((projectData) => new Project(projectData));
+    return sortedData.map((data) => new Project(data));
+
+}
+
+export function searchProjectKeywords(){
+
 }
